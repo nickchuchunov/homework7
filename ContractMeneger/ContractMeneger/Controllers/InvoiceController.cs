@@ -13,13 +13,16 @@ namespace ContractMeneger.Controllers
     public class InvoiceController : Controller // Не все реализованы методы CRUD - Update и Delete будут реализованы в соответсвии с потребностями приложения
     {
 
+        InvoiceService _invoiceService;
+        InvoiceController(InvoiceService _invoiceService) { this._invoiceService = _invoiceService; }
+
         [HttpPost("POST/api/contract/{id}/invoice")]
-        public Invoice InvoiceCreateOfIdContract([FromRoute] int Id) { return new Invoice { ContactId = Id }; } //метод создания Invoice с Id Contract
+        public Invoice InvoiceCreateOfIdContract([FromRoute] int Id) { return _invoiceService.InvoiceCreateOfIdContract(Id);      } //метод создания Invoice с Id Contract
 
 
 
         [HttpGet("GET/api/contract/{id}/invoice")]
-        public List<Invoice> InvoiceReadingOfIdContract([FromRoute] int Id) { return new List<Invoice>(); } //метод чтения invoice по id contracta
+        public List<Invoice> InvoiceReadingOfIdContract([FromRoute] int Id) { return _invoiceService.InvoiceReadingOfIdContract(Id); } //метод чтения invoice по id contracta
 
        
        

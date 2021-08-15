@@ -24,6 +24,14 @@ namespace ContractMeneger
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddSingleton<ICustomerRepository, CustomerService>();
+            services.AddSingleton<IEmployeeRepository, EmployeeService>();
+            services.AddSingleton<ITaskRepository, EmployeeService>();
+            services.AddSingleton<IInvoiceRepository, InvoiceService>();
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
