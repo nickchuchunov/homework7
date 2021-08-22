@@ -10,7 +10,7 @@ namespace ContractMeneger
       public  int Id { get; set; }
       public  int ContactId { get; set; }
       public   string  ServiceProduct { get; set; }
-      public  DateTimeOffset EndDate { get; set; }
+      public  DateTime EndDate { get; set; }
 
         public Invoice() { }
     }

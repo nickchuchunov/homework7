@@ -11,9 +11,21 @@ namespace ContractMeneger
 {
     public class Program
     {
+      
+
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+           // CreateHostBuilder(args).Build().Run();
+
+
+             CustomerDatabase customer1 = new CustomerDatabase { FirsName = "Nikolay", LastName = "Chuchunov", Email = "excwmpel@yandex.ru", Company = "hom", Location = "Russia", Telephone = "89994805555" };
+
+            CustomerService customer = new CustomerService(new ContractMenegerDatabaseContext() ); //CustomerCreate(customer1);
+
+            customer.CustomerCreate(customer1);
+
+            //customer.CustomerReadingList();
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,5 +34,11 @@ namespace ContractMeneger
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+
+      
+
+      
+
     }
 }

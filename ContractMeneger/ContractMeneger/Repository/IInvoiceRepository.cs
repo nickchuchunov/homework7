@@ -12,12 +12,12 @@ namespace ContractMeneger
 
 
        
-        public Invoice InvoiceCreateOfIdContract(int Id); //метод создания Invoice с Id Contract
+        public void InvoiceCreateOfIdContract(int Id); //метод создания Invoice с Id Contract
 
 
 
 
-        public List<Invoice> InvoiceReadingOfIdContract(int Id); //метод чтения invoice по id contracta
+        public List<InvoiceDatabase> InvoiceReadingOfIdContract(int Id); //метод чтения invoice по id contracta
 
 
 

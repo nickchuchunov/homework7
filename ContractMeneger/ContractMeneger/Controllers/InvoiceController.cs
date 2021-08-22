@@ -17,12 +17,12 @@ namespace ContractMeneger.Controllers
         InvoiceController(InvoiceService _invoiceService) { this._invoiceService = _invoiceService; }
 
         [HttpPost("POST/api/contract/{id}/invoice")]
-        public Invoice InvoiceCreateOfIdContract([FromRoute] int Id) { return _invoiceService.InvoiceCreateOfIdContract(Id);      } //метод создания Invoice с Id Contract
+        public void InvoiceCreateOfIdContract([FromRoute] int Id) { _invoiceService.InvoiceCreateOfIdContract(Id);      } //метод создания Invoice с Id Contract
 
 
 
         [HttpGet("GET/api/contract/{id}/invoice")]
-        public List<Invoice> InvoiceReadingOfIdContract([FromRoute] int Id) { return _invoiceService.InvoiceReadingOfIdContract(Id); } //метод чтения invoice по id contracta
+        public List<InvoiceDatabase> InvoiceReadingOfIdContract([FromRoute] int Id) { return _invoiceService.InvoiceReadingOfIdContract(Id); } //метод чтения invoice по id contracta
 
        
        

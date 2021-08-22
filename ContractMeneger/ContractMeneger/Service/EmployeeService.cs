@@ -7,30 +7,38 @@ namespace ContractMeneger
 {
     public class EmployeeService : ITaskRepository, IEmployeeRepository
     {
-        public Employe EmployeCreate(Employe _employe) // метод создания Employe
+        ContractMenegerDatabaseContext _contractMenegerDatabaseContext;
+       public  EmployeeService(ContractMenegerDatabaseContext _contractMenegerDatabaseContext) { this._contractMenegerDatabaseContext = _contractMenegerDatabaseContext; }
 
+
+
+        public void EmployeCreate(EmployeDatabase _employe) // метод создания Employe
         {
-            return _employe;
+            _contractMenegerDatabaseContext.EmployeDatabases.Add(_employe);
+            _contractMenegerDatabaseContext.SaveChanges();
         }
 
-        public InvocieTask InvocieTaskCreate(InvocieTask _invocieTask) //метод создания InvoiceTask   
+        public void InvocieTaskCreate(InvoiceTaskDatabase _invocieTask) //метод создания InvoiceTask   
         {
-            return _invocieTask;
+            _contractMenegerDatabaseContext.InvoiceTaskDatabases.Add(_invocieTask);
+            _contractMenegerDatabaseContext.SaveChanges();
         }
 
-        public Task TaskCreate(Task _task)  // метод создания Task 
+        public void TaskCreate(TaskDatabase _task) // метод создания Task 
         {
-            return _task;
+            _contractMenegerDatabaseContext.TaskDatabases.Add(_task);
+            _contractMenegerDatabaseContext.SaveChanges();
         }
 
-        public TaskEmployee TaskEmployeeCreate(TaskEmployee _taskEmployee)  //создание TaskEmployee
+        public void TaskEmployeeCreate(TaskEmployeeDatabase _taskEmployee) //создание TaskEmployee
         {
-            return _taskEmployee;
+            _contractMenegerDatabaseContext.TaskEmployeeDatabases.Add(_taskEmployee);
+            _contractMenegerDatabaseContext.SaveChanges();
         }
 
-        public List<Task> TaskReading() // Метод чтения всех Task 
+        public List<TaskDatabase> TaskReading() // Метод чтения всех Task 
         {
-            return new List<Task>();
+          return  _contractMenegerDatabaseContext.TaskDatabases.ToList<TaskDatabase>();
         }
     }
 }

@@ -18,12 +18,12 @@ namespace ContractMeneger.Controllers
 
 
         [HttpPost("POST/api/Customer/{FirsName}/{LastName}/{Email}/{Company}/{Location}/{Telephone}")]
-        public Customer CustomerCreateController([FromRoute] string FirsName, [FromRoute] string LastName, [FromRoute] string Email, [FromRoute] string Company, [FromRoute] string Location, [FromRoute] string Telephone) // метод создания Customer
+        public void CustomerCreateController([FromRoute] string FirsName, [FromRoute] string LastName, [FromRoute] string Email, [FromRoute] string Company, [FromRoute] string Location, [FromRoute] string Telephone) // метод создания Customer
         {
-            Customer _customer = new Customer { FirsName = FirsName, LastName = LastName, Email = Email, Company = Company, Location = Location, Telephone = Telephone };
+            CustomerDatabase _customer = new CustomerDatabase { FirsName = FirsName, LastName = LastName, Email = Email, Company = Company, Location = Location, Telephone = Telephone };
 
 
-            return _CustomerService.CustomerCreate(_customer);
+             _CustomerService.CustomerCreate(_customer);
 
             
         }
@@ -31,16 +31,16 @@ namespace ContractMeneger.Controllers
 
 
         [HttpPost("POST/api/Customer/{Id}/Contract")]
-        public Contact ContractCreateController([FromRoute] int Id) { Customer _customer = new Customer { Id = Id };  return _CustomerService.ContractCreate(_customer); } // метод создания контракта предпологается что в дальнейшем можно будет передать полноценный Customer
+        public void ContractCreateController([FromRoute] int Id) { CustomerDatabase _customer = new CustomerDatabase { Id = Id };   _CustomerService.ContractCreate(_customer); } // метод создания контракта предпологается что в дальнейшем можно будет передать полноценный Customer
 
 
 
         [HttpGet("GET/api/customer")]
-        public IList<Customer> CustomerReadingListController() { return _CustomerService.CustomerReadingList(); } // метод чтения всей таблици Customer 
+        public IList<CustomerDatabase> CustomerReadingListController() { return _CustomerService.CustomerReadingList(); } // метод чтения всей таблици Customer 
 
 
         [HttpGet("GET/api/Customer/{id}/Contract")]
-       public List<Contact> ContractReagingIdOfCustomerController( [FromRoute] int Id) { return _CustomerService.ContractReagingIdOfCustomer(Id); } // метод чтнеиия контарктов по id Customer
+       public List<ContractDatabase> ContractReagingIdOfCustomerController( [FromRoute] int Id) { return _CustomerService.ContractReagingIdOfCustomer(Id); } // метод чтнеиия контарктов по id Customer
 
 
 

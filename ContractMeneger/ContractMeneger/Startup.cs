@@ -8,6 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContractMeneger
 {
@@ -29,8 +34,11 @@ namespace ContractMeneger
             services.AddSingleton<IEmployeeRepository, EmployeeService>();
             services.AddSingleton<ITaskRepository, EmployeeService>();
             services.AddSingleton<IInvoiceRepository, InvoiceService>();
+            services.AddDbContext<ContractMenegerDatabaseContext>(); // (options =>
+        //  options.UseNpgsql(Configuration.GetConnectionString("d73lt373eqvl1k"))); ;
 
 
+            
 
         }
 
