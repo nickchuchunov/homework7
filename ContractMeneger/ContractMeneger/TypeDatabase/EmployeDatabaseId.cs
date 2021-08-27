@@ -7,9 +7,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContractMeneger
 {
-    [Keyless]
-    public class EmployeDatabaseId<T> where T : struct
+   
+
+    public class EmployeDatabaseId<TUniqueId> where TUniqueId : struct
     {
-        public T Id { get; set; }
+
+       public EmployeDatabaseId() { }
+        public TUniqueId Id { get; set; }
+        public bool IsDeleted { get; set; }
+
+
     }
 }

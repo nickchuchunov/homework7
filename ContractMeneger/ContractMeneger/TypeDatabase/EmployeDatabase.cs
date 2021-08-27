@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContractMeneger
 {
-    [Keyless]
-    [Table("EmployeDatabase", Schema = "EmployeDatabase")]
+   
+    [Table("EmployeDatabase")]
 
-    public class EmployeDatabase: EmployeDatabaseId<int>
+    public sealed class EmployeDatabase: EmployeDatabaseId<int>
     {
         public float Rate { get; set; }
     }

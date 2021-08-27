@@ -7,10 +7,12 @@ using Microsoft.EntityFrameworkCore;
 namespace ContractMeneger
 
 {
-    [Keyless]
-    [Table("CustomerDatabase", Schema = "CustomerDatabase")]
-    public class CustomerDatabase: CustomerDatabaseId<int>
+    
+    
+    [Table("CustomerDatabase")]
+    public sealed class CustomerDatabase: CustomerDatabaseId<int>
     {
+        
         public string FirsName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

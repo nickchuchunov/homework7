@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContractMeneger
 {
-    [Keyless]
-    [Table("TaskEmployeeDatabase", Schema = "TaskEmployeeDatabase")]
-    public class TaskEmployeeDatabase: TaskEmployeeDatabaseId<int>
+   
+    [Table("TaskEmployeeDatabase")]
+    public sealed class TaskEmployeeDatabase: TaskEmployeeDatabaseId<int>
     {
-        
+        public int TaskId { get; set; }
         public int EmployeId { get; set; }
         public DateTime StartData { get; set; }
         public DateTime EndData { get; set; }

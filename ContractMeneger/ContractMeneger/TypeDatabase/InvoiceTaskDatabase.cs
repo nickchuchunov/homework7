@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContractMeneger
 {
-    [Keyless]
-    [Table("InvoiceTaskDatabase", Schema = "InvoiceTaskDatabase")]
-    public class InvoiceTaskDatabase: InvoiceTaskDatabaseId<int>
+    
+    [Table("InvoiceTaskDatabase")]
+    public sealed class InvoiceTaskDatabase: InvoiceTaskDatabaseId<int>
     {
         public int TaskId { get; set; }
         public int InvoiceId { get; set; }

@@ -4,13 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 
 namespace ContractMeneger
 {
-    [Keyless]
-    public class InvoiceTaskDatabaseId<T> where T : struct
+   
+
+    public class InvoiceTaskDatabaseId<TUniqueId> where TUniqueId : struct
     {
-        public T Id { get; set; }
+       public InvoiceTaskDatabaseId() { }
+
+        public TUniqueId Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

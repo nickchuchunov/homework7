@@ -7,9 +7,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContractMeneger
 {
-    [Keyless]
-    public class CustomerDatabaseId<T> where T : struct
+   
+
+    public class CustomerDatabaseId<TUniqueId> where TUniqueId : struct
     {
-        public T Id { get; set; }
+
+       public  CustomerDatabaseId() { }
+        public TUniqueId Id { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+
     }
 }

@@ -7,12 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 namespace ContractMeneger
 {
-    [Keyless]
-    [Table("ContractDatabase", Schema = "ContractDatabase")]
-    public class ContractDatabase: ContractDatabaseId<int>
+   
+    [Table("ContractDatabase")]
+    public sealed class ContractDatabase: ContractDatabaseId<int>
     {
         public int CustomerID { get; set; }
 

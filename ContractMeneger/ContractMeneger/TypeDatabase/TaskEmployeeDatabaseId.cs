@@ -8,10 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContractMeneger
 {
-    [Keyless]
-    public class TaskEmployeeDatabaseId<T> where T : struct
+   
+    public class TaskEmployeeDatabaseId<TUniqueId> where TUniqueId : struct
     {
-        public T TaskId { get; set; }
-        
+        public TaskEmployeeDatabaseId() { }
+
+        public TUniqueId Id { get; set; }
+        public bool IsDeleted { get; set; }
+
     }
 }
