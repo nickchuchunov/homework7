@@ -9,10 +9,10 @@ namespace ContractMeneger
     {
 
 
-        public Employe EmployeCreate(Employe _employe); // метод создания Employe
+        public void EmployeCreate(EmployeDatabase _employe); // метод создания Employe
 
 
-        public TaskEmployee TaskEmployeeCreate(TaskEmployee _taskEmployee); //создание TaskEmployee
+        public void TaskEmployeeCreate(TaskEmployeeDatabase _taskEmployee); //создание TaskEmployee
                                                                                                                                                                                                                                                                                               //
 
 

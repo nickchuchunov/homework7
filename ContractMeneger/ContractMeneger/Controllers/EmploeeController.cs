@@ -18,23 +18,23 @@ namespace ContractMeneger.Controllers
 
 
         [HttpPost("POST/api/emploee/{Rate}")]
-        public Employe EmployeCreateController([FromRoute] double Rate) { Employe _employe = new Employe { Rate = Rate }; return _employeeService.EmployeCreate(_employe);  } // метод создания Employe 
+        public void EmployeCreateController([FromRoute] float Rate) { EmployeDatabase _employe = new EmployeDatabase { Rate = Rate }; _employeeService.EmployeCreate(_employe);  } // метод создания Employe 
 
         [HttpPost("POST/api/task/{Amount}")]
-        public Task TaskCreateController([FromRoute] double Amount) { Task _task = new Task { Amount = Amount }; return _employeeService.TaskCreate(_task); }  // метод создания Task 
+        public void TaskCreateController([FromRoute] float Amount) {TaskDatabase _task = new TaskDatabase { Amount = Amount };  _employeeService.TaskCreate(_task); }  // метод создания Task 
 
 
 
         [HttpPost("POST/api/TaskEmployee/employee/{EmployeId}/task/{TaskId}/startdata/{StartData}/enddata/{EndData}")]
-        public TaskEmployee TaskEmployeeCreateContriller([FromRoute] int EmployeId, [FromRoute] int TaskId, [FromRoute] DateTimeOffset StartData, [FromRoute] DateTimeOffset EndData) { TaskEmployee _taskEmployee = new TaskEmployee { EmployeId = EmployeId, TaskId = TaskId, StartData = StartData, EndData = EndData }; return _employeeService.TaskEmployeeCreate(_taskEmployee); } //создание TaskEmployee 
+        public void TaskEmployeeCreateContriller([FromRoute] int EmployeId, [FromRoute] int TaskId, [FromRoute] DateTime StartData, [FromRoute] DateTime EndData) { TaskEmployeeDatabase _taskEmployee = new TaskEmployeeDatabase { EmployeId = EmployeId, TaskId = TaskId, StartData = StartData, EndData = EndData };  _employeeService.TaskEmployeeCreate(_taskEmployee); } //создание TaskEmployee 
                                                                                                                                                                                                                                                                                                  
 
        
          [HttpPost("POST/api/InvoiceTask/taskId/{TaskId}/invoiceId/{InvoiceId}")]
-        public InvocieTask InvocieTaskCreateController([FromRoute]  int TaskId, [FromRoute]  int InvoiceId) { InvocieTask _invocieTask = new InvocieTask { TaskId = TaskId, InvoiceId = InvoiceId }; return _employeeService.InvocieTaskCreate(_invocieTask)   }  //метод создания InvoiceTask   
+        public void InvocieTaskCreateController([FromRoute]  int TaskId, [FromRoute]  int InvoiceId) { InvoiceTaskDatabase _invocieTask = new InvoiceTaskDatabase { TaskId = TaskId, InvoiceId = InvoiceId };  _employeeService.InvocieTaskCreate(_invocieTask);   }  //метод создания InvoiceTask   
 
         [HttpGet("GET/api/Task")]
-        public List<Task> TaskReadingController() { return _employeeService.TaskReading(); }  // Метод чтения всех Task
+        public List<TaskDatabase> TaskReadingController() { return _employeeService.TaskReading(); }  // Метод чтения всех Task
 
 
 

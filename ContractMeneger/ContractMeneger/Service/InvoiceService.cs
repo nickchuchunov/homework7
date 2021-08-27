@@ -7,14 +7,19 @@ namespace ContractMeneger
 {
     public class InvoiceService : IInvoiceRepository
     {
-        public Invoice InvoiceCreateOfIdContract(int Id) //метод создания Invoice с Id Contract
+        ContractMenegerDatabaseContext _contractMenegerDatabaseContext;
+        public InvoiceService(ContractMenegerDatabaseContext _contractMenegerDatabaseContext) { this._contractMenegerDatabaseContext = _contractMenegerDatabaseContext; }
+
+        public void InvoiceCreateOfIdContract(int Id) //метод создания Invoice с Id Contract
         {
-            return new Invoice { ContactId = Id };
+            _contractMenegerDatabaseContext.InvoiceDatabases.Add(new InvoiceDatabase { ContractId = Id });
+            _contractMenegerDatabaseContext.SaveChanges();
         }
 
-        public List<Invoice> InvoiceReadingOfIdContract(int Id) //метод чтения invoice по id contracta
+        public List<InvoiceDatabase> InvoiceReadingOfIdContract(int Id) //метод чтения invoice по id contracta
         {
-            return new List<Invoice>();
+            
+           return _contractMenegerDatabaseContext.InvoiceDatabases.Where(x => x.ContractId == Id).ToList<InvoiceDatabase>();
         }
     }
 }

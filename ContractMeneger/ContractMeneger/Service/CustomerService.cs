@@ -7,24 +7,32 @@ namespace ContractMeneger
 {
     public class CustomerService : ICustomerRepository
     {
-        public Contact ContractCreate(Customer _customer) // метод создания Contract
+        ContractMenegerDatabaseContext _contractMenegerDatabaseContext;
+      public  CustomerService(ContractMenegerDatabaseContext _contractMenegerDatabaseContext) { this._contractMenegerDatabaseContext = _contractMenegerDatabaseContext; }
+
+
+
+        public void ContractCreate(CustomerDatabase _customer) // метод создания контракта
         {
-            return new Contact { CustomerID = _customer.Id };
+            _contractMenegerDatabaseContext.ContractDatabases.Add(new ContractDatabase { CustomerID = _customer.Id });
+            _contractMenegerDatabaseContext.SaveChanges();
         }
 
-        public List<Contact> ContractReagingIdOfCustomer(int Id)  // метод чтнеиия контарктов по id Customer
+        public List<ContractDatabase> ContractReagingIdOfCustomer(int Id) // метод чтнеиия контарктов по id ."Customer
         {
-            return new List<Contact>();
+            return _contractMenegerDatabaseContext.ContractDatabases.Where(x => x.CustomerID == Id).ToList<ContractDatabase>();
+           
         }
 
-        public Customer CustomerCreate(Customer _customer) // метод создания Customer
+        public void CustomerCreate(CustomerDatabase _customer) // метод создания Customer
         {
-            return _customer;
+            _contractMenegerDatabaseContext.CustomerDatabases.Add(_customer);
+            _contractMenegerDatabaseContext.SaveChanges();
         }
 
-        public IList<Customer> CustomerReadingList() // метод чтения всей таблици Customer 
+        public IList<CustomerDatabase> CustomerReadingList() // метод чтения всей таблици Customer 
         {
-            return new List<Customer>();
+           return _contractMenegerDatabaseContext.CustomerDatabases.ToList<CustomerDatabase>();
         }
     }
 }

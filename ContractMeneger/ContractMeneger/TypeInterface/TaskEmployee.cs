@@ -10,8 +10,8 @@ namespace ContractMeneger
         public int Id { get; set; }
         public int TaskId { get; set; }
         public int EmployeId { get; set; }
-        public DateTimeOffset StartData {get; set;}
-        public DateTimeOffset EndData { get; set; }
+        public DateTime StartData {get; set;}
+        public DateTime EndData { get; set; }
         public TaskEmployee() { }
 
     }

@@ -9,16 +9,16 @@ namespace ContractMeneger
     {
 
 
-        public Customer CustomerCreate(Customer _customer); // метод создания Customer
+        public void CustomerCreate(CustomerDatabase _customer); // метод создания Customer
 
 
-        public Contact ContractCreate(Customer _customer);// метод создания контракта
+        public void ContractCreate(CustomerDatabase _customer);// метод создания контракта
 
 
-        public IList<Customer> CustomerReadingList(); // метод чтения всей таблици Customer 
+        public IList<CustomerDatabase> CustomerReadingList(); // метод чтения всей таблици Customer 
 
 
-        public List<Contact> ContractReagingIdOfCustomer(int Id); // метод чтнеиия контарктов по id Customer
+        public List<ContractDatabase> ContractReagingIdOfCustomer(int Id); // метод чтнеиия контарктов по id Customer
 
 
 

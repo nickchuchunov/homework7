@@ -8,7 +8,7 @@ namespace ContractMeneger
     public class Task
     {
         public int Id { get; set; }
-        public double Amount { get; set; }
+        public float Amount { get; set; }
         public Task() { }
 
 

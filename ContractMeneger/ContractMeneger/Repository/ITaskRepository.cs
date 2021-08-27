@@ -9,16 +9,16 @@ namespace ContractMeneger
     {
 
 
-        public InvocieTask InvocieTaskCreate(InvocieTask _invocieTask);  //метод создания InvoiceTask   
+        public void InvocieTaskCreate(InvoiceTaskDatabase _invocieTask);  //метод создания InvoiceTask   
 
 
 
-        public List<Task> TaskReading();  // Метод чтения всех Task 
+        public List<TaskDatabase> TaskReading();  // Метод чтения всех Task 
 
 
 
 
-        public Task TaskCreate(Task _task);  // метод создания Task 
+        public void TaskCreate(TaskDatabase _task);  // метод создания Task 
 
 
 
